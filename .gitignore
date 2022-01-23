@@ -3,6 +3,11 @@
 ## ref https://gist.github.com/brazilnut2000/8226958
 
 ###################
+### Node/React  ###
+###################
+node_modules/
+
+###################
 # compiled source #
 ###################
 *.com

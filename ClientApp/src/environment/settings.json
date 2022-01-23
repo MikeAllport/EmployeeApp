@@ -1,0 +1,6 @@
+{
+    "BaseUrl": "http://localhost:41478",
+    "ApiEndpoints": {
+        "List": "List"
+    }
+}

@@ -1,4 +1,4 @@
-﻿namespace InterviewTest.Model
+﻿namespace Project.Model
 {
     public class Employee
     {

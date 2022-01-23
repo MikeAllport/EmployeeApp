@@ -1,9 +1,9 @@
-﻿using InterviewTest.Model;
+﻿using Project.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.Sqlite;
 using System.Collections.Generic;
 
-namespace InterviewTest.Controllers
+namespace Project.Controllers
 {
     [ApiController]
     [Route("[controller]")]

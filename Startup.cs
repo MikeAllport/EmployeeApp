@@ -5,8 +5,10 @@ using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Project.DataAccess;
+using Project.Services;
 
-namespace InterviewTest
+namespace Project
 {
     public class Startup
     {
@@ -22,6 +24,10 @@ namespace InterviewTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<EmployeesContext>();
+
+            services.AddScoped<IEmployeeService, EmployeeServiceCTX>();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
