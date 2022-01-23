@@ -2,8 +2,9 @@ import { prependOnceListener } from 'process';
 import React, { Component } from 'react';
 import { Card } from './components/Card/Card';
 import { Header } from './components/Header/Header';
+import { TitledSearchInput } from './components/TitledSearchInput/TitledSearchInput';
 import { Employee } from './models/Employee';
-import { buttonStyle, flexItem, horizontalFlexContainer, innerCardStyle, listItem, listTopContainer, scrollBar } from './styles/EmployeeListStyles';
+import { buttonStyle, flexItem, horizontalFlexContainer, innerCardStyle, listTopContainer } from './styles/EmployeeListStyles';
 import { FetchEmployees } from './utils/DataFetch';
 
 interface Props {
@@ -76,7 +77,8 @@ export default class App extends React.Component<Props, State> {
                 <Header
                     titleText={this.state.titleText}
                 />
-                <div style={{...listTopContainer, ...scrollBar}}>
+                <TitledSearchInput label='test' />
+                <div style={{...listTopContainer}}>
                     {this.BuildEmployees()}
                 </div>
             </Card>

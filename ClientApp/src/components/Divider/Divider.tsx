@@ -1,9 +1,14 @@
+import { CSSProperties } from "@material-ui/core/styles/withStyles"
 import React from "react"
 import { dividerStyle } from "./DividerStyle"
 
-export class Divider extends React.Component {
+interface Props {
+    style?: CSSProperties
+}
+
+export class Divider extends React.Component<Props> {
 
     public render(): JSX.Element {
-        return <div style={dividerStyle} />
+        return <div style={{ ...dividerStyle, ...this.props.style }} />
     }
 }
