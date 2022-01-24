@@ -28,13 +28,59 @@ namespace Project.Controllers
                 };
         }
 
-        [HttpPut]
-        public HttpResponse<Employee> Put(Employee employee)
+        [HttpDelete]
+        public HttpResponse<Employee> Delete([FromBody] Employee toDelete)
         {
-            var updatedItems = _employeeService.UpdateEmployee(employee);
-            return updatedItems > 0 ?
-                new HttpResponse<Employee> { Data = employee } :
-                new HttpResponse<Employee> { IsError = true, ErrorMessage = "Failed to update employee", Data = employee };
+            _employeeService.RemoveEmployee(toDelete);
+            return new HttpResponse<Employee> { Data = toDelete };
+        }
+
+        [HttpPut]
+        public HttpResponse<Employee> Patch([FromBody] Employee newEmployee)
+        {
+            _employeeService.AddEmployee(newEmployee);
+            return new HttpResponse<Employee> { Data = newEmployee };
+        }
+
+        [HttpPatch]
+        public HttpResponse<Employee> Patch([FromBody] EmployeePatch patchDetails)
+        {
+            var oldEmployee = new Employee { Name = patchDetails.OldName, Value = patchDetails.OldValue };
+            var newEmployee = new Employee { Name = patchDetails.NewName, Value = patchDetails.NewValue };
+            int updatedEmployees = _employeeService.UpdateEmployee(oldEmployee, newEmployee);
+
+            // success case
+            if(updatedEmployees > 0)
+            {
+                return new HttpResponse<Employee>
+                {
+                    Data = newEmployee,
+                };
+            }
+
+            // failed case
+            return new HttpResponse<Employee>
+            {
+                IsError = true,
+                ErrorMessage = "Failed to update employee"
+            };
+        }
+
+        [HttpGet]
+        [ActionName("Increment")]
+        [Route("/List/Increment")]
+        public HttpResponse<List<Employee>> Increment()
+        {
+            _employeeService.Increment();
+            return new HttpResponse<List<Employee>> { Data = _employeeService.FetchAll() };
+        }
+
+        [HttpGet]
+        [ActionName("Summed")]
+        [Route("/List/Summed")]
+        public HttpResponse<List<Employee>> Summed()
+        {
+            return new HttpResponse<List<Employee>> { Data = _employeeService.GetSummed() };
         }
     }
 }

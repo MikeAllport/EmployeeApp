@@ -25,8 +25,8 @@ namespace Project
         {
             services.AddControllersWithViews();
 
+            // custom service and dbcontext uses dependency injection
             services.AddDbContext<EmployeesContext>();
-
             services.AddScoped<IEmployeeService, EmployeeServiceCTX>();
 
             // In production, the React files will be served from this directory

@@ -9,6 +9,7 @@ export const searchButtonStyle: CSSProperties = {
     paddingLeft: '7px'
 }
 
-export const height: CSSProperties = {
-    height: '20px'
+export const inputStyle: CSSProperties = {
+    height: '20px',
+    paddingLeft: '5px'
 }

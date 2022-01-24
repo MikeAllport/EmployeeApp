@@ -10,7 +10,9 @@ namespace Project.Services
     {
         public List<Employee> FetchAll();
         public int AddEmployee(Employee employee);
-        public int UpdateEmployee(Employee employee);
+        public int UpdateEmployee(Employee oldEmployee, Employee newEmployee);
         public int RemoveEmployee(Employee remployee);
+        public void Increment();
+        public List<Employee> GetSummed();
     }
 }

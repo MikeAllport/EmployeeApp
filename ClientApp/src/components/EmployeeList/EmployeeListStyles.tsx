@@ -19,7 +19,7 @@ export const listTopContainer: CSSProperties = {
     marginRight: 'auto',
     marginLeft: 'auto',
     paddingRight: '20px',
-    maxHeight: '600px',
+    maxHeight: '500px',
     overflowY: 'auto'
 }
 
@@ -44,4 +44,27 @@ export const buttonStyle: CSSProperties = {
     width: '40px',
     marginLeft: '15px',
     paddingLeft: '7px'
+}
+
+export const trashButtonStyle: CSSProperties = {
+    backgroundColor: 'rgba(191,63,63)',
+    marginLeft: '0px'
+}
+
+export const incrementButtonStyle: CSSProperties = {
+    width: '90px',
+    height: '26px', 
+    fontWeight: 'bold'
+}
+
+
+export const newButtonContainerStyle: CSSProperties = {
+    marginTop: '20px',
+    width: '100%',
+    display: 'flex',
+    placeContent: 'center'
+}
+
+export const newButtonStyle: CSSProperties = {
+    backgroundColor: 'DodgerBlue', 
 }

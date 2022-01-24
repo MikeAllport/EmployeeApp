@@ -9,14 +9,25 @@ export interface FetchRequest extends ResponseError {
     data: Employee[];
 }
 
-export interface AddRequest extends ResponseError {
+export interface AddResponse extends ResponseError {
     data: Employee;
 }
 
-export interface UpdateRequest extends ResponseError {
+export interface UpdateResponse extends ResponseError {
     data: Employee;
 }
 
-export interface RemoveRequest extends ResponseError {
+export interface RemoveResponse extends ResponseError {
 
+}
+
+export interface SummedResponse extends ResponseError {
+    data: Employee[]
+}
+
+export interface UpdateRequest {
+    oldName: string,
+    oldValue: number,
+    newName: string,
+    newValue: number
 }
